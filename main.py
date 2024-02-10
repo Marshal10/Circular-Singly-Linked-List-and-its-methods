@@ -99,12 +99,31 @@ class CircularSinglyLinkedList:
             temp=temp.next
         return temp
     
+    def set_value(self,index,value):
+        # if index==-1:
+        #     self.tail.value=value
+        #     return True
+        # elif index < -1 or index >=self.length:
+        #     return None
+        # current=self.head
+        # for _ in range(index):
+        #     current=current.next
+        # current.value=value
+        # return True
+        
+        update_node=self.get(index)
+        if update_node:
+            update_node.value=value
+            return True
+        return False
+    
 cs_linked_list=CircularSinglyLinkedList()
 cs_linked_list.prepend(50)
 cs_linked_list.prepend(90)
 cs_linked_list.append(100)
+cs_linked_list.insert(1,70)
 print(cs_linked_list)
-# cs_linked_list.insert(1,70)
 # print(cs_linked_list)
 # cs_linked_list.traverse()
-print(cs_linked_list.get(-3))
+print(cs_linked_list.set_value(2,200))
+print(cs_linked_list)
