@@ -69,6 +69,14 @@ class CircularSinglyLinkedList:
             temp.next=new_node
         self.length+=1
         
+    def traverse(self):
+        current=self.head
+        while current:
+            print(current.value)
+            current=current.next
+            if current==self.head:
+                break
+        
 cs_linked_list=CircularSinglyLinkedList()
 cs_linked_list.prepend(50)
 cs_linked_list.prepend(90)
@@ -76,3 +84,4 @@ cs_linked_list.append(100)
 print(cs_linked_list)
 cs_linked_list.insert(1,70)
 print(cs_linked_list)
+cs_linked_list.traverse()
