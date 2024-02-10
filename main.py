@@ -145,17 +145,31 @@ class CircularSinglyLinkedList:
             popped_node.next=None
         self.length-=1
         return popped_node
+    
+    def remove(self,index):
+        if self.head is None or index < -1 or index >= self.length:
+            return None
+        if index==-1 or index==self.length-1:
+            return self.pop()
+        elif index==0:
+            return self.pop_first()
+        prev_node=self.get(index-1)
+        popped_node=prev_node.next
+        prev_node.next=popped_node.next
+        popped_node.next=None
+        self.length-=1
+        return popped_node.value
         
     
 cs_linked_list=CircularSinglyLinkedList()
-# cs_linked_list.prepend(50)
-# cs_linked_list.prepend(90)
-# cs_linked_list.append(100)
+cs_linked_list.prepend(50)
+cs_linked_list.prepend(90)
+cs_linked_list.append(100)
 # cs_linked_list.insert(1,70)
 print(cs_linked_list)
 # print(cs_linked_list)
 # cs_linked_list.traverse()
 # print(cs_linked_list.set_value(2,200))
-print(cs_linked_list.pop())
-
+print(cs_linked_list.remove(0))
+print(cs_linked_list.length)
 print(cs_linked_list)
