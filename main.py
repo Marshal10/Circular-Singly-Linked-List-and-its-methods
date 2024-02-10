@@ -76,12 +76,25 @@ class CircularSinglyLinkedList:
             current=current.next
             if current==self.head:
                 break
+    
+    def search(self,target):
+        current=self.head
+        index=0
+        while current:
+            if current.value==target:
+                return index
+            current=current.next
+            index+=1
+            if current==self.head:
+                break
+        return -1
         
 cs_linked_list=CircularSinglyLinkedList()
 cs_linked_list.prepend(50)
 cs_linked_list.prepend(90)
 cs_linked_list.append(100)
 print(cs_linked_list)
-cs_linked_list.insert(1,70)
-print(cs_linked_list)
-cs_linked_list.traverse()
+# cs_linked_list.insert(1,70)
+# print(cs_linked_list)
+# cs_linked_list.traverse()
+print(cs_linked_list.search(100))
