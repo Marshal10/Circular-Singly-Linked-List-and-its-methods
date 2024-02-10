@@ -159,6 +159,14 @@ class CircularSinglyLinkedList:
         popped_node.next=None
         self.length-=1
         return popped_node.value
+    
+    def delete_all(self):
+        if self.length==0:
+            return
+        self.tail.next=None
+        self.head=None
+        self.tail=None
+        self.length=0
         
     
 cs_linked_list=CircularSinglyLinkedList()
@@ -170,6 +178,8 @@ print(cs_linked_list)
 # print(cs_linked_list)
 # cs_linked_list.traverse()
 # print(cs_linked_list.set_value(2,200))
-print(cs_linked_list.remove(0))
+# print(cs_linked_list.remove(0))
 print(cs_linked_list.length)
+cs_linked_list.delete_all()
 print(cs_linked_list)
+print(cs_linked_list.length)
